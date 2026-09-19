@@ -131,7 +131,3 @@ When an expression has multiple operators, precedence determines the order of ev
 | **Q4: Precedence & Associativity Evaluation** | [`questions/q4.java`](./questions/q4.java) | Step-by-step arithmetic operator precedence breakdown. |
 | **Q5: Complex Precedence Calculation** | [`questions/q5.java`](./questions/q5.java) | Complex expression evaluation trace with division and modulus. |
 
-### Reference Materials & PDFs:
-- [`Operator Precedence_V1.1.pdf`](./Operator%20Precedence_V1.1.pdf)
-- [`Operators Questions.pdf`](./questions/Operators%20Questions.pdf)
-- [`Operators Solutions.pdf`](./questions/Operators%20Solutions.pdf)

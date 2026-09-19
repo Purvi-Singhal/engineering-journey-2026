@@ -178,6 +178,3 @@ In arithmetic expressions:
 | **Q4: Type Promotion Test** | [`questions/q4.java`](./questions/q4.java) | Tests output data types for expressions with mixed primitive types. |
 | **Bonus: Temperature Converter** | [`questions/TemperatureConverter.java`](./questions/TemperatureConverter.java) | Converts Celsius temperature to Fahrenheit using floating point arithmetic. |
 
-### Reference Materials & PDFs:
-- [`Variables Questions (1).pdf`](./questions/Variables%20Questions%20(1).pdf)
-- [`Variables Solutions.pdf`](./questions/Variables%20Solutions.pdf)
