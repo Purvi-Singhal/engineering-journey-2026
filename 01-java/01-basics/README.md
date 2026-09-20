@@ -106,30 +106,7 @@ Java is a **statically typed** language, meaning every variable must be declared
 
 ---
 
-## 6. User Input with Scanner
-
-Java provides `java.util.Scanner` to read primitive types and strings from standard input (`System.in`).
-
-```java
-import java.util.Scanner;
-
-public class InputExample {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        String singleWord = sc.next();     // Reads until whitespace
-        String fullLine = sc.nextLine();   // Reads full line of text
-        int num = sc.nextInt();            // Reads an integer
-        float decimal = sc.nextFloat();    // Reads a float value
-        
-        sc.close();
-    }
-}
-```
-
----
-
-## 7. Type Conversion & Type Casting
+## 6. Type Conversion & Type Casting
 
 ### 1. Widening / Implicit Conversion (Automatic)
 Occurs when converting a smaller data type to a larger data type without data loss.
@@ -153,7 +130,7 @@ In arithmetic expressions:
 
 ---
 
-## 8. Code Examples & Directory Files
+## 7. Code Examples & Directory Files
 
 | File | Concept Covered |
 | :--- | :--- |
@@ -162,19 +139,17 @@ In arithmetic expressions:
 | [`PersonalInfo.java`](./PersonalInfo.java) | Variable declarations (`String`, `int`) and concatenation. |
 | [`datatypes.java`](./datatypes.java) | Primitive data types demonstration (`byte`, `char`, `boolean`, `int`, `double`, `short`). |
 | [`variables.java`](./variables.java) | Variable assignment, re-assignment, and value swapping/modification. |
-| [`input.java`](./input.java) | Capturing single words and full-line strings with `Scanner`. |
-| [`product.java`](./product.java) | Taking user input for numbers and calculating product. |
 | [`typec.java`](./typec.java) | Comprehensive type casting, char-to-int ASCII conversions, and type promotion. |
+
+> [!NOTE]
+> Detailed user input handling (`Scanner`, `BufferedReader`) and variable scoping are covered in [**Module 02: User Input & Variable Scope**](../02-input-and-scope/README.md).
 
 ---
 
-## 9. Practice Questions
+## 8. Practice Questions
 
 | Problem | File | Description |
 | :--- | :--- | :--- |
-| **Q1: Average of 3 Numbers** | [`questions/q1.java`](./questions/q1.java) | Calculates the average of three input integers. |
-| **Q2: Area of a Square** | [`questions/q2.java`](./questions/q2.java) | Takes the side of a square and computes its area. |
-| **Q3: Item Bill with GST** | [`questions/q3.java`](./questions/q3.java) | Computes total bill for pencil, pen, and eraser including 18% GST. |
-| **Q4: Type Promotion Test** | [`questions/q4.java`](./questions/q4.java) | Tests output data types for expressions with mixed primitive types. |
-| **Bonus: Temperature Converter** | [`questions/TemperatureConverter.java`](./questions/TemperatureConverter.java) | Converts Celsius temperature to Fahrenheit using floating point arithmetic. |
+| **Q1: Type Promotion Test** | [`questions/q4.java`](./questions/q4.java) | Tests output data types for expressions with mixed primitive types. |
+| **Q2: Temperature Converter** | [`questions/TemperatureConverter.java`](./questions/TemperatureConverter.java) | Converts Celsius temperature to Fahrenheit using floating point arithmetic. |
 
