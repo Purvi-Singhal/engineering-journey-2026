@@ -6,7 +6,7 @@
 
 ## Question 1: Type Promotion & Valid Identifiers
 
-- **File**: [`q4.java`](./q4.java)
+- **File**: [`q1.java`](./q1.java)
 - **Concept**: Java automatic type promotion rules in mixed expressions, identifier naming rules.
 
 ### Problem Statement:
@@ -42,4 +42,4 @@ $$\text{Fahrenheit} = (\text{Celsius} \times \frac{9.0}{5.0}) + 32$$
 ---
 
 > [!NOTE]
-> All console input-based practice questions (Average, Square Area, GST Bill Calculator) have been moved to [**Module 02: User Input & Variable Scope Questions**](../../02-input-and-scope/questions/README.md).
+> All console input-based practice questions (Average, Square Area, GST Bill Calculator) have been moved to [**Module 02: User Input Questions**](../../02-input/questions/README.md).
