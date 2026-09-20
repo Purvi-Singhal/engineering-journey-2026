@@ -150,6 +150,6 @@ In arithmetic expressions:
 
 | Problem | File | Description |
 | :--- | :--- | :--- |
-| **Q1: Type Promotion Test** | [`questions/q4.java`](./questions/q4.java) | Tests output data types for expressions with mixed primitive types. |
+| **Q1: Type Promotion Test** | [`questions/q1.java`](./questions/q1.java) | Tests output data types for expressions with mixed primitive types. |
 | **Q2: Temperature Converter** | [`questions/TemperatureConverter.java`](./questions/TemperatureConverter.java) | Converts Celsius temperature to Fahrenheit using floating point arithmetic. |
 
