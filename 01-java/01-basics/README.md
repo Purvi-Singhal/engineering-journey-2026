@@ -142,7 +142,7 @@ In arithmetic expressions:
 | [`typec.java`](./typec.java) | Comprehensive type casting, char-to-int ASCII conversions, and type promotion. |
 
 > [!NOTE]
-> Detailed user input handling (`Scanner`, `BufferedReader`) and variable scoping are covered in [**Module 02: User Input & Variable Scope**](../02-input-and-scope/README.md).
+> Detailed user input handling (`Scanner`, `BufferedReader`, Fast I/O) is covered in [**Module 02: User Input**](../02-input/README.md).
 
 ---
 
