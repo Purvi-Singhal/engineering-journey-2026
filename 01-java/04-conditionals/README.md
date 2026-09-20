@@ -89,6 +89,7 @@ if (condition1) {
 | [`elseif.java`](elseif.java) | `else-if` Ladder | Assigns letter grades (A, B, C, D, F) based on student marks. |
 | [`largestOf2.java`](largestOf2.java) | `if-else` | Compares two integers and prints the larger value. |
 | [`oddOreven.java`](oddOreven.java) | Modulo `%` + `if-else` | Checks whether an integer is even or odd. |
+| [`incomeTax.java`](incomeTax.java) | `else-if` Ladder | Progressive slab-based income tax calculation (<5L: 0%, 5-10L: 20%, >10L: 30%). |
 
 ---
 
