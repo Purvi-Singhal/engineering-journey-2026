@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 /**
- * Q3_FastMatrixSum.java
+ * q5_fast_stream_sum.java
  * 
- * Solution for Question 3:
  * Reads multiple space-separated numbers rapidly using BufferedReader and StringTokenizer,
  * calculating count, total sum, min, and max.
  */
-public class Q3_FastMatrixSum {
+public class q5_fast_stream_sum {
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("====== FAST I/O STREAM PROCESSOR ======");

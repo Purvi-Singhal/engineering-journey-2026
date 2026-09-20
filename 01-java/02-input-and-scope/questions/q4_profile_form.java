@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
 /**
- * Q2_ProfileForm.java
+ * q4_profile_form.java
  * 
- * Solution for Question 2:
  * Demonstrates clean, bullet-proof handling of mixed primitive types and full lines,
  * avoiding the nextInt() -> nextLine() newline skip pitfall.
  */
-public class Q2_ProfileForm {
+public class q4_profile_form {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

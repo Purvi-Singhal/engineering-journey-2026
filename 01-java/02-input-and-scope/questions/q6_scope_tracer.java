@@ -1,10 +1,9 @@
 /**
- * Q4_ScopeTracer.java
+ * q6_scope_tracer.java
  * 
- * Solution for Question 4:
  * Detailed tracing problem for variable shadowing and nested scopes.
  */
-public class Q4_ScopeTracer {
+public class q6_scope_tracer {
     static int globalVal = 100;
     int instanceVal = 50;
 
@@ -41,7 +40,7 @@ public class Q4_ScopeTracer {
 
     public static void main(String[] args) {
         System.out.println("====== SCOPE & SHADOWING TRACE ======");
-        Q4_ScopeTracer tracer = new Q4_ScopeTracer();
+        q6_scope_tracer tracer = new q6_scope_tracer();
         tracer.runTrace();
         System.out.println("=====================================");
     }
