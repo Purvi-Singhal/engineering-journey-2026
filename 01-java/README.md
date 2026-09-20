@@ -19,19 +19,20 @@ Each module contains:
 
 | Module | Title | Key Topics Covered | Status |
 | :---: | :--- | :--- | :---: |
-| **01** | [**Basics & Data Types**](./01-basics/README.md) | JVM/JRE/JDK architecture, Program anatomy, Variables, Primitive data types, Scanner input, Type conversion & casting | `COMPLETED` |
-| **02** | [**Operators & Expressions**](./02-operators/README.md) | Arithmetic (unary/binary), Relational, Logical, Assignment, Operator precedence & associativity | `COMPLETED` |
-| **03** | **Conditional Statements** | `if-else`, `else-if`, Ternary operator, `switch-case` | `UPCOMING` |
-| **04** | **Loops & Flow Control** | `while`, `for`, `do-while`, `break`, `continue`, Nested loops, Pattern printing | `UPCOMING` |
-| **05** | **Functions & Methods** | Method syntax, Parameters vs arguments, Call by value, Function overloading, Scope | `UPCOMING` |
-| **06** | **Arrays & 2D Matrices** | Array creation, Memory representation, Searching/Sorting basics, 2D Arrays, Matrix operations | `UPCOMING` |
-| **07** | **Strings & StringBuilder** | String pool, Immutability, `StringBuilder`, String manipulation methods | `UPCOMING` |
-| **08** | **Object-Oriented Programming** | Classes, Objects, 4 OOP Pillars (Encapsulation, Inheritance, Polymorphism, Abstraction), Interfaces, Packages | `UPCOMING` |
-| **09** | **Recursion & Backtracking** | Base cases, Call stack memory, Divide & Conquer | `UPCOMING` |
-| **10** | **Java Collections Framework** | `ArrayList`, `LinkedList`, `HashSet`, `TreeSet`, `HashMap`, `PriorityQueue`, Comparators | `UPCOMING` |
-| **11** | **Exception Handling** | `try-catch-finally`, Checked vs Unchecked, Custom exceptions, `throw`/`throws` | `UPCOMING` |
-| **12** | **JVM Internals & Memory Model** | ClassLoaders, Stack vs Heap memory, JIT compiler, Garbage Collection algorithms | `UPCOMING` |
-| **13** | **Concurrency & Multithreading** | Threads, `Runnable`, `Callable`, Synchronization, Locks, Thread pools (`ExecutorService`) | `UPCOMING` |
+| **01** | [**Basics & Data Types**](./01-basics/README.md) | JVM/JRE/JDK architecture, Program anatomy, Variables, Primitive data types, Type conversion & casting | `COMPLETED` |
+| **02** | [**Literals, Input & Scope**](./02-literals-input-scope/README.md) | Literals (bases, underscores, escapes), Expressions, Scanner vs. BufferedReader Fast I/O, Variable Scope & Shadowing | `COMPLETED` |
+| **03** | [**Operators & Precedence**](./03-operators/README.md) | Arithmetic (unary/binary), Relational, Logical, Assignment, Operator precedence & associativity | `COMPLETED` |
+| **04** | **Conditional Statements** | `if-else`, `else-if`, Ternary operator, `switch-case` | `UPCOMING` |
+| **05** | **Loops & Flow Control** | `while`, `for`, `do-while`, `break`, `continue`, Nested loops, Pattern printing | `UPCOMING` |
+| **06** | **Functions & Methods** | Method syntax, Parameters vs arguments, Call by value, Function overloading, Scope | `UPCOMING` |
+| **07** | **Arrays & 2D Matrices** | Array creation, Memory representation, Searching/Sorting basics, 2D Arrays, Matrix operations | `UPCOMING` |
+| **08** | **Strings & StringBuilder** | String pool, Immutability, `StringBuilder`, String manipulation methods | `UPCOMING` |
+| **09** | **Object-Oriented Programming** | Classes, Objects, 4 OOP Pillars (Encapsulation, Inheritance, Polymorphism, Abstraction), Interfaces, Packages | `UPCOMING` |
+| **10** | **Recursion & Backtracking** | Base cases, Call stack memory, Divide & Conquer | `UPCOMING` |
+| **11** | **Java Collections Framework** | `ArrayList`, `LinkedList`, `HashSet`, `TreeSet`, `HashMap`, `PriorityQueue`, Comparators | `UPCOMING` |
+| **12** | **Exception Handling** | `try-catch-finally`, Checked vs Unchecked, Custom exceptions, `throw`/`throws` | `UPCOMING` |
+| **13** | **JVM Internals & Memory Model** | ClassLoaders, Stack vs Heap memory, JIT compiler, Garbage Collection algorithms | `UPCOMING` |
+| **14** | **Concurrency & Multithreading** | Threads, `Runnable`, `Callable`, Synchronization, Locks, Thread pools (`ExecutorService`) | `UPCOMING` |
 
 ---
 
@@ -47,15 +48,27 @@ Each module contains:
 │   ├── PersonalInfo.java
 │   ├── datatypes.java
 │   ├── variables.java
-│   ├── input.java
-│   ├── product.java
 │   ├── typec.java
 │   └── questions/
 │       ├── q1.java ... q4.java
 │       ├── TemperatureConverter.java
 │       └── *.pdf                          # Questions & Solutions
 │
-├── 02-operators/
+├── 02-literals-input-scope/
+│   ├── README.md                          # Theory: Literals, Expressions, Scanner, BufferedReader, Scope
+│   ├── LiteralsDemo.java
+│   ├── ExpressionsDemo.java
+│   ├── ScannerInputDemo.java
+│   ├── FastIODemo.java
+│   ├── ScopeAndShadowingDemo.java
+│   └── questions/
+│       ├── README.md
+│       ├── Q1_LiteralInspector.java
+│       ├── Q2_ProfileForm.java
+│       ├── Q3_FastMatrixSum.java
+│       └── Q4_ScopeTracer.java
+│
+├── 03-operators/
 │   ├── README.md                          # Theory, Precedence table & truth tables
 │   ├── arithmetic.java
 │   ├── relational.java
@@ -66,7 +79,7 @@ Each module contains:
 │       ├── q1.java ... q5.java
 │       └── *.pdf                          # Questions & Solutions
 │
-└── [Upcoming Topic Modules: 03-conditionals, 04-loops, 05-functions, etc.]
+└── [Upcoming Topic Modules: 04-conditionals, 05-loops, 06-functions, etc.]
 ```
 
 ---
