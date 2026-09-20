@@ -86,6 +86,7 @@ if (condition1) {
 | File | Topic / Concept | Description |
 |---|---|---|
 | [`ifelse.java`](ifelse.java) | `if-else if-else` | Evaluates age to categorize as Adult, Teenager, or Minor. |
+| [`elseif.java`](elseif.java) | `else-if` Ladder | Assigns letter grades (A, B, C, D, F) based on student marks. |
 | [`largestOf2.java`](largestOf2.java) | `if-else` | Compares two integers and prints the larger value. |
 | [`oddOreven.java`](oddOreven.java) | Modulo `%` + `if-else` | Checks whether an integer is even or odd. |
 
