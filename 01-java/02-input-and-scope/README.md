@@ -1,231 +1,86 @@
-# Module 02: Java Literals, Expressions, Input & Scope
+# Module 02: Java User Input & Variable Scope
 
-> Deep dive into Java literals, literal syntax, expression evaluation rules, user input handling (`Scanner` vs. `BufferedReader` Fast I/O), and variable scope, shadowing, and lifetime.
+> Comprehensive guide covering Java Input Systems (`Scanner` vs. `BufferedReader` Fast I/O) and Variable Scope Architecture (Local Variables, Block Scope, Class-Level Fields, and Variable Shadowing).
 
 ---
 
 ## 1. Overview & Architecture
 
-Every Java computation starts with constant values (**Literals**), combines them into evaluated formulas (**Expressions**), receives data dynamically from users (**I/O Streams**), and manages variable visibility and lifetime across execution blocks (**Scope**).
+Understanding how data enters a Java program (**Input Streams**) and how long variables survive and where they are visible (**Variable Scope**) is essential for writing robust, bug-free applications.
 
 ```
 +-----------------------------------------------------------------------------+
-|                               JAVA EXECUTION                                |
+|                     JAVA INPUT & SCOPE ARCHITECTURE                         |
 |                                                                             |
-|  [ Literals ] ───> [ Expressions & Operators ] ───> [ Evaluated Result ]    |
-|   (Constants)          (Evaluation & Promotion)                             |
-|                                ▲                                            |
-|                                │ User Data                                  |
-|                 [ System.in / Input Streams ]                               |
-|                  ├─ Scanner (Token parsing)                                 |
-|                  └─ BufferedReader (Fast 8KB I/O)                           |
+|  [ Standard Input Stream: System.in ]                                       |
+|   ├── Scanner (Regex token parsing, easy interactive I/O)                   |
+|   └── BufferedReader (8KB fast character buffer for large data streams)     |
 |                                                                             |
-|  [ Variable Scopes ]                                                        |
-|   ├─ Block Scope { ... }   (Stack Frame - local lifecycle)                  |
-|   ├─ Method Scope (main)   (Stack Frame - parameter lifecycle)              |
-|   └─ Class/Static Scope    (Method Area & Heap - global lifecycle)          |
+|  [ Variable Scopes Hierarchy ]                                              |
+|   ├── Class-Level / Static Scope   (Class lifecycle, Method Area/Heap)      |
+|   │   └── Instance / Member Scope  (Object lifecycle on Heap)               |
+|   │       └── Method / Local Scope (Stack Frame execution)                  |
+|   │           └── Block Scope {}   (Inner block lifecycle within frame)     |
+|                                                                             |
+|  [ Variable Shadowing ]                                                     |
+|   └── Local variable hides Outer Field (Resolved via 'this' / ClassName)    |
 +-----------------------------------------------------------------------------+
 ```
 
 ---
 
-## 2. Java Literals
+## 2. Java User Input Handling
 
-A **literal** is a fixed source code representation of a constant value directly assigned to a variable without computation.
+Java communicates with the operating system standard input stream via `System.in` (`InputStream`).
 
-```java
-int count = 100;         // 100 is an integer literal
-double price = 29.99;    // 29.99 is a floating-point literal
-char grade = 'A';        // 'A' is a character literal
-String label = "Alpha";  // "Alpha" is a string literal
-```
+### 1. `java.util.Scanner` Class
 
-### 1. Integer Literals (Base Systems & Prefixes)
+The `Scanner` class is the standard utility for parsing primitive data types and strings token-by-token using regular expressions.
 
-Java supports four number systems for integer literals:
-
-| Number System | Base | Prefix | Valid Digits | Example | Decimal Value |
-| :--- | :---: | :---: | :--- | :--- | :---: |
-| **Decimal** | 10 | *None* | `0-9` | `int a = 120;` | `120` |
-| **Binary** | 2 | `0b` or `0B` | `0, 1` | `int b = 0b1010;` | `10` |
-| **Octal** | 8 | `0` | `0-7` | `int c = 014;` | `12` |
-| **Hexadecimal** | 16 | `0x` or `0X` | `0-9`, `a-f`, `A-F` | `int d = 0x2A;` | `42` |
-
-> [!WARNING]
-> Leading zero `0` denotes an **octal** literal! Writing `int x = 077;` results in decimal `63`. Writing `int y = 088;` causes a compile-time error because `8` is invalid in base-8.
-
-#### Suffixes for Long Literals:
-Integer literals default to type `int` (32-bit). To specify a `long` literal (64-bit), append `L` or `l` (always prefer uppercase `L` for readability):
-```java
-long distance = 9876543210L; // Required: without 'L', 9876543210 exceeds int capacity
-```
-
-### 2. Underscores in Numeric Literals (Java 7+)
-
-Underscores (`_`) can be placed between digits to improve readability. The compiler ignores them completely.
-
-```java
-int million = 1_000_000;
-long creditCard = 1234_5678_9012_3456L;
-int binaryByte = 0b1100_0011;
-int hexColor = 0xFF_E4_A1;
-```
-
-**Rules for Underscores:**
-- Allowed: Only between digits (e.g., `1_000`).
-- Disallowed: At the start/end of numbers (`_100` or `100_`), adjacent to decimal points (`3_.14` or `3._14`), or next to suffixes/prefixes (`0b_101` or `1000_L`).
-
-### 3. Floating-Point Literals
-
-Floating-point literals represent numbers with fractional parts.
-
-- **`double`**: Default type for decimal literals. Suffix `D` or `d` is optional (e.g., `3.14159`).
-- **`float`**: Requires explicit `F` or `f` suffix (e.g., `3.14f`).
-
-```java
-float f1 = 45.67f;       // Explicit float suffix
-double d1 = 45.67;       // Default double
-double d2 = 1.5e3;       // Scientific notation: 1.5 * 10^3 = 1500.0
-double d3 = 2.4e-2;      // Scientific notation: 2.4 * 10^-2 = 0.024
-```
-
-### 4. Character Literals & Escape Sequences
-
-A `char` literal is enclosed in single quotes `' '` representing a 16-bit Unicode character.
-
-| Escape Sequence | Description | Unicode Code Point |
-| :---: | :--- | :---: |
-| `\n` | Newline (Line feed) | `\u000A` |
-| `\t` | Horizontal Tab | `\u0009` |
-| `\b` | Backspace | `\u0008` |
-| `\r` | Carriage Return | `\u000D` |
-| `\'` | Single Quote | `\u0027` |
-| `\"` | Double Quote | `\u0022` |
-| `\\` | Backslash | `\u005C` |
-| `\uXXXX` | Any Unicode Character (Hex) | e.g. `\u0905` = 'अ', `\u03A9` = 'Ω' |
-
-```java
-char ch1 = 'A';
-char ch2 = 65;           // ASCII decimal for 'A'
-char ch3 = '\u0041';     // Unicode hex for 'A'
-char newline = '\n';
-```
-
-### 5. String Literals & Boolean Literals
-
-- **String Literal**: Sequence of characters enclosed in double quotes `" "`. Stored in the JVM **String Constant Pool**.
-  ```java
-  String greeting = "Hello, Java!\nWelcome to 2026.";
-  ```
-- **Boolean Literal**: Only two valid values: `true` or `false` (case-sensitive, no quotes, cannot use `0` or `1`).
-  ```java
-  boolean isCompleted = true;
-  ```
-- **Null Literal**: `null` represents the absence of any object reference.
+#### Common Scanner Methods:
+| Method | Description | Input Example | Stored Type |
+| :--- | :--- | :--- | :--- |
+| `sc.next()` | Reads next token up to whitespace delimiter | `"Purvi"` | `String` |
+| `sc.nextLine()` | Reads full line including spaces until `\n` | `"Purvi Singhal 2026"` | `String` |
+| `sc.nextInt()` | Reads integer token | `42` | `int` |
+| `sc.nextLong()` | Reads 64-bit integer | `9876543210` | `long` |
+| `sc.nextFloat()` | Reads 32-bit floating-point | `99.5` | `float` |
+| `sc.nextDouble()` | Reads 64-bit floating-point | `3.14159` | `double` |
+| `sc.nextBoolean()`| Reads boolean token (`true`/`false`) | `true` | `boolean` |
 
 ---
 
-## 3. Expressions & Statements
+### 2. The Classic Scanner Buffer Trap & Solution
 
-### Definitions:
+#### Why does `nextLine()` get skipped after `nextInt()` / `nextFloat()`?
+`nextInt()` and `nextFloat()` read only the digits from the input stream, **leaving the newline character (`\n`) in the buffer**. When `nextLine()` is subsequently called, it immediately consumes that lingering `\n` and returns an empty string without waiting for user input.
 
-| Concept | Definition | Example |
-| :--- | :--- | :--- |
-| **Expression** | A construct of variables, operators, and literals that evaluates to a **single value**. | `a + b * 2`, `x > 10`, `Math.sqrt(16)` |
-| **Statement** | A complete unit of execution terminated with a semicolon (`;`). | `int a = 10;`, `System.out.println(a);` |
-| **Block** | A sequence of zero or more statements enclosed within curly braces `{ }`. | `{ int temp = a; a = b; b = temp; }` |
+```
+User enters: "25 [Enter]"
+Buffer State:  [ '2' ][ '5' ][ '\n' ]
+sc.nextInt()   --> Reads '2''5' (Returns 25)
+Buffer State:  [ '\n' ] (Lingering!)
+sc.nextLine()  --> Immediately consumes '\n' and finishes -> Returns "" (SKIPPED!)
+```
 
-### Expression Types:
-
-1. **Arithmetic Expression**: Evaluates to a number (`int`, `double`, etc.).
-   ```java
-   int result = (10 + 5) * 2; // 30
-   ```
-2. **Relational / Boolean Expression**: Evaluates to `true` or `false`.
-   ```java
-   boolean isEligible = (age >= 18) && (hasLicense == true);
-   ```
-3. **Assignment Expression**: Evaluates to the assigned value.
-   ```java
-   int x;
-   int y = (x = 50); // x is assigned 50, and expression (x = 50) evaluates to 50
-   ```
-
-### Type Promotion Rules in Expressions
-
-When evaluating expressions with multiple data types:
-
-1. **Byte / Short / Char Promotion**: All `byte`, `short`, and `char` operands are automatically promoted to `int` before arithmetic operations.
-   ```java
-   byte b1 = 10, b2 = 20;
-   // byte b3 = b1 + b2; // COMPILE ERROR: (b1 + b2) produces an int
-   int b3 = b1 + b2;      // Correct
-   ```
-2. **Dominant Operand Promotion**: If an expression contains mixed numeric types, the entire expression promotes to the highest-precision type:
-   $$\text{byte, short, char} \longrightarrow \text{int} \longrightarrow \text{long} \longrightarrow \text{float} \longrightarrow \text{double}$$
-
----
-
-## 4. User Input Handling: Scanner vs. BufferedReader
-
-### 1. The `java.util.Scanner` Class
-
-`Scanner` parses primitive types and strings using regular expressions over tokens (delimited by whitespace by default).
-
+#### The Fix:
 ```java
-import java.util.Scanner;
-
 Scanner sc = new Scanner(System.in);
 
-System.out.print("Enter integer: ");
-int n = sc.nextInt();
-
-System.out.print("Enter single word: ");
-String word = sc.next();
-
-System.out.print("Enter full sentence: ");
-sc.nextLine(); // Consume residual newline if preceding was nextInt()/next()
-String sentence = sc.nextLine();
-
-sc.close();
-```
-
-### 2. The Classic Scanner Buffer Pitfall & Solutions
-
-#### The Problem:
-`nextInt()`, `nextDouble()`, and `next()` read only their target token and **leave the newline character (`\n`)** sitting in the input stream. When `nextLine()` is called immediately afterwards, it encounters and consumes this leftover `\n` and returns an **empty string**.
-
-```
-Input Stream Buffer: [ "42" ][ "\n" ][ "Purvi Singhal" ][ "\n" ]
-sc.nextInt()  ──> reads "42", leaves "\n" in buffer
-sc.nextLine() ──> reads "\n" immediately -> Returns "" (SKIPS USER INPUT!)
-```
-
-#### Solution 1: Consume the Trailing Newline
-```java
+System.out.print("Enter Age: ");
 int age = sc.nextInt();
-sc.nextLine(); // Flush / consume leftover '\n'
-String name = sc.nextLine(); // Now correctly waits for user input
-```
+sc.nextLine(); // Clear the leftover newline '\n'
 
-#### Solution 2: Read All Input via `nextLine()` and Parse (Best Practice)
-```java
-int age = Integer.parseInt(sc.nextLine().trim());
-String name = sc.nextLine();
+System.out.print("Enter Full Name: ");
+String name = sc.nextLine(); // Works perfectly!
 ```
 
 ---
 
 ### 3. Fast I/O: `BufferedReader` & `StringTokenizer`
 
-For competitive programming, massive datasets, or high-throughput systems, `Scanner` is slow because of regex overhead and a small 1KB buffer. `BufferedReader` utilizes an **8KB internal character buffer** and direct stream reads.
+For competitive programming, big data, or high-throughput servers, `Scanner` is slow due to heavy regular expression parsing and a small 1KB buffer. `BufferedReader` provides an **8KB character buffer** and direct stream reading.
 
-```
-Scanner:        Stream -> Regex Parser -> Token (Slow for 10^5+ inputs)
-BufferedReader: Stream -> 8KB Buffer -> Direct Char Array -> Fast Tokenizer
-```
-
-#### Fast I/O Implementation:
 ```java
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -236,97 +91,116 @@ public class FastIOExample {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        // Reading full line
+        // Fast line reading
         String line = br.readLine();
         
-        // Tokenizing space-separated values (e.g., "10 20 30 40")
+        // Tokenize space-separated integers (e.g. "10 20 30")
         StringTokenizer st = new StringTokenizer(line);
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         
-        System.out.println("Sum: " + (a + b));
+        System.out.println("Sum = " + (a + b));
     }
 }
 ```
 
-### Comparison Matrix: `Scanner` vs `BufferedReader`
+#### Comparison: `Scanner` vs `BufferedReader`
 
-| Feature | `java.util.Scanner` | `java.io.BufferedReader` |
+| Feature | `Scanner` | `BufferedReader` |
 | :--- | :--- | :--- |
 | **Package** | `java.util` | `java.io` |
-| **Buffer Size** | 1 KB buffer | 8 KB buffer (8x larger) |
-| **Parsing** | Built-in regex parsing (`nextInt`, `nextDouble`) | Reads raw strings (`readLine`), manual parsing needed |
-| **Speed / Performance** | Slower (high parsing overhead) | **Significantly Faster** (~10x-20x) |
-| **Thread Safety** | Not synchronized (not thread-safe) | Synchronized (thread-safe) |
-| **Exception Handling** | Hides `IOException` internally | Requires handling `IOException` (`throws` or `try-catch`) |
-| **Best Use Case** | Small interactive console applications | Large inputs, Competitive Programming, File I/O |
+| **Buffer Size** | 1 KB | **8 KB (8x larger)** |
+| **Speed** | Slower (Regex overhead) | **~10x - 20x Faster** |
+| **Thread Safety** | Not Synchronized | Synchronized (Thread-safe) |
+| **Exception Handling** | Swallows `IOException` | Requires `IOException` handling |
 
 ---
 
-## 5. Variable Scope, Shadowing & Lifetime
+## 3. Variable Scope in Java
 
-**Scope** refers to the region of the program where a variable is accessible by its identifier.
+**Scope** determines where in the program a variable can be accessed by its name. **Lifetime** determines how long that variable remains allocated in memory.
 
 ```
-+-------------------------------------------------------------------+
-| Class / Static Scope                                              |
-| static int globalCount = 0;                                       |
-|                                                                   |
-|   +-------------------------------------------------------------+ |
-|   | Instance Scope (Field)                                      | |
-|   | int instanceVal = 100;                                      | |
-|   |                                                             | |
-|   |   +-------------------------------------------------------+ | |
-|   |   | Method Scope                                          | | |
-|   |   | void calculate(int param) {                           | | |
-|   |   |                                                       | | |
-|   |   |     +-----------------------------------------------+ | | |
-|   |   |     | Block Scope                                   | | |
-|   |   |     | {                                             | | |
-|   |   |     |     int blockTemp = 50;                       | | |
-|   |   |     | }                                             | | |
-|   |   |     +-----------------------------------------------+ | | |
-|   |   | }                                                     | | |
-|   |   +-------------------------------------------------------+ | |
-|   +-------------------------------------------------------------+ |
-+-------------------------------------------------------------------+
++-----------------------------------------------------------------------+
+| 1. CLASS / STATIC LEVEL SCOPE                                         |
+|    static int globalTracker = 0; // Lifetime: entire app runtime      |
+|                                                                       |
+|    +----------------------------------------------------------------+ |
+|    | 2. INSTANCE / CLASS LEVEL SCOPE                                | |
+|    |    int objectId = 101;      // Lifetime: object on Heap        | |
+|    |                                                                | |
+|    |    +---------------------------------------------------------+ | |
+|    |    | 3. METHOD / LOCAL SCOPE                                 | | |
+|    |    |    void calculate(int parameter) {                      | | |
+|    |    |        int localSum = 0; // Lifetime: method stack frame| | |
+|    |    |                                                         | | |
+|    |    |        +----------------------------------------------+ | | |
+|    |    |        | 4. BLOCK SCOPE                               | | |
+|    |    |        |    {                                         | | |
+|    |    |        |        int blockTemp = 50; // Inside { } only| | |
+|    |    |        |    }                                         | | |
+|    |    |        +----------------------------------------------+ | | |
+|    |    |    }                                                    | | |
+|    |    +---------------------------------------------------------+ | |
+|    +----------------------------------------------------------------+ |
++-----------------------------------------------------------------------+
 ```
+
+---
 
 ### 1. The 4 Scope Levels
 
-1. **Block Scope**: Declared inside `{ ... }`. Visible only from declaration to closing brace `}`.
-   ```java
-   {
-       int blockVar = 10;
-       System.out.println(blockVar); // Accessible
-   }
-   // System.out.println(blockVar);  // COMPILE ERROR: blockVar out of scope
-   ```
-2. **Method / Local Scope**: Declared inside a method (including parameters). Alive during method execution on the stack.
-3. **Instance / Field Scope**: Declared inside a class but outside methods (without `static`). Belongs to the object instance.
-4. **Static / Class Scope**: Declared with `static`. Belongs to the class itself and shared across all instances.
+#### A. Local Variable Scope (Method Scope)
+- Declared inside a method or passed as a method parameter.
+- **Accessible**: Only inside the method from the declaration point downwards.
+- **Lifetime**: Created when method is invoked (stack frame pushed); destroyed when method finishes (stack frame popped).
+- **Default Value**: **None**. Must be explicitly initialized before use, otherwise compiler throws an error.
+
+#### B. Block Scope (`{ ... }`)
+- Declared inside any pair of curly braces `{}` (such as `if`, `for`, `while`, or independent block).
+- **Accessible**: Only within that enclosing block.
+- **Lifetime**: Destroyed once execution exits the block.
+
+```java
+{
+    int blockVar = 99;
+    System.out.println(blockVar); // Accessible
+}
+// System.out.println(blockVar);  // COMPILE ERROR: blockVar out of scope
+```
+
+#### C. Class-Level: Instance Variables (Fields)
+- Declared inside the class body but outside any method (without `static`).
+- **Accessible**: By all non-static methods in the class.
+- **Lifetime**: Exists as long as the containing object exists on the **Heap**.
+- **Default Value**: Automatically initialized (`0` for numbers, `false` for boolean, `null` for objects).
+
+#### D. Class-Level: Static Variables
+- Declared inside the class with the `static` keyword.
+- **Accessible**: Everywhere in the class and outside via `ClassName.variableName`.
+- **Lifetime**: Loaded when class is initialized by JVM ClassLoader; destroyed when class is unloaded.
 
 ---
 
 ### 2. Variable Shadowing
 
-**Shadowing** occurs when a variable declared within a narrower scope has the same name as a variable declared in an outer scope.
+**Variable Shadowing** occurs when a variable declared in an inner scope (e.g., local variable or method parameter) has the same name as a variable in an outer scope (e.g., instance field).
 
-#### Local Variable Shadowing Instance Field:
 ```java
-public class ShadowExample {
+public class ShadowDemo {
     int count = 10; // Instance field
 
-    void display() {
-        int count = 99; // Shadows instance variable 'count'
-        System.out.println("Local count: " + count);          // 99
-        System.out.println("Instance count: " + this.count);  // 10
+    public void update(int count) { // Parameter shadows field 'count'
+        System.out.println("Local count: " + count);         // Prints method parameter
+        System.out.println("Instance count: " + this.count); // Accesses instance field
+        
+        this.count = count; // Resolves ambiguity using 'this'
     }
 }
 ```
 
 > [!NOTE]
-> In Java, **nested local variables cannot shadow outer local variables** in the same method.
+> In Java, **nested local variables cannot shadow outer local variables** within the same method:
 > ```java
 > int x = 10;
 > {
@@ -336,34 +210,24 @@ public class ShadowExample {
 
 ---
 
-### 3. Scope vs. Lifetime
+## 4. Scope vs. Lifetime Summary
 
-| Aspect | Variable Scope (Visibility) | Variable Lifetime (Duration) |
-| :--- | :--- | :--- |
-| **Definition** | Where in the code the variable can be referenced. | How long the variable exists in computer memory. |
-| **Local Variables** | From declaration point to the end of enclosing block `{}`. | Allocated when stack frame is pushed, deallocated when stack frame is popped. |
-| **Instance Fields** | Accessible anywhere inside the class (via `this`). | Exists as long as the containing object lives on the **Heap**. |
-| **Static Fields** | Accessible anywhere the class is loaded. | Exists throughout the entire duration of the application/class lifecycle. |
-
----
-
-## 6. Directory Files & Examples
-
-| File | Concept Covered |
-| :--- | :--- |
-| [`LiteralsDemo.java`](./LiteralsDemo.java) | Binary `0b`, Octal `0`, Hex `0x`, scientific floats, unicode chars, underscore separators. |
-| [`ExpressionsDemo.java`](./ExpressionsDemo.java) | Arithmetic/logical expressions, operand evaluation order, implicit type promotion. |
-| [`ScannerInputDemo.java`](./ScannerInputDemo.java) | Comprehensive Scanner usage, resolving the `nextInt()` buffer trap. |
-| [`FastIODemo.java`](./FastIODemo.java) | High-speed I/O using `BufferedReader` and `StringTokenizer`. |
-| [`ScopeAndShadowingDemo.java`](./ScopeAndShadowingDemo.java) | Block scope, method scope, instance shadowing, and `this` reference. |
+| Scope Type | Where Declared | Accessibility (Scope) | Memory Location | Lifetime | Default Value |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Block Variable** | Inside `{ ... }` | Within enclosing block only | Stack Frame | Until block exits | No (must initialize) |
+| **Local / Method Variable** | Inside method / parameter | Within enclosing method | Stack Frame | Method execution | No (must initialize) |
+| **Instance Field** | Inside class (no `static`) | Entire class / object | Heap (with object) | As long as object lives | Yes (`0`, `null`, `false`) |
+| **Static Field** | Inside class (with `static`)| Everywhere across instances | Method Area / Heap | Program run lifecycle | Yes (`0`, `null`, `false`) |
 
 ---
 
-## 7. Practice Questions
+## 5. Code Demos & Practice Directory
 
-| Problem | File | Description |
+| File | Type | Description |
 | :--- | :--- | :--- |
-| **Q1: Literal Inspector** | [`questions/Q1_LiteralInspector.java`](./questions/Q1_LiteralInspector.java) | Parse binary/hex/octal representations and format numbers with underscores. |
-| **Q2: Robust Profile Form** | [`questions/Q2_ProfileForm.java`](./questions/Q2_ProfileForm.java) | Interactive form reading mixed integer, float, and multi-word string input safely. |
-| **Q3: Fast Matrix Sum** | [`questions/Q3_FastMatrixSum.java`](./questions/Q3_FastMatrixSum.java) | Read multiple lines of space-delimited integers via `BufferedReader` and sum them. |
-| **Q4: Scope Tracer Challenge** | [`questions/Q4_ScopeTracer.java`](./questions/Q4_ScopeTracer.java) | Trace variable shadowing and block scopes with nested contexts. |
+| [`input.java`](./input.java) | Demo | Basic Scanner integer, float, string input and arithmetic sum. |
+| [`product.java`](./product.java) | Demo | Scanner product and Circle area computation. |
+| [`ScannerInputDemo.java`](./ScannerInputDemo.java) | Demo | Comprehensive multi-type Scanner usage with newline buffer flush fix. |
+| [`FastIODemo.java`](./FastIODemo.java) | Demo | High-performance I/O with `BufferedReader` and `StringTokenizer`. |
+| [`ScopeAndShadowingDemo.java`](./ScopeAndShadowingDemo.java) | Demo | Local, block, instance, and static scopes with variable shadowing. |
+| [`questions/`](./questions/README.md) | Practice | Full set of input calculations and scope tracing exercises. |
