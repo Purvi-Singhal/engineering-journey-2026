@@ -1,7 +1,5 @@
-package questions;
-
 /**
- * Question 4: Type Promotion & Identifier Rules
+ * Question 1: Type Promotion & Identifier Rules
  * 
  * Problem Statement:
  * What will be the type of result in the following Java code?
@@ -24,7 +22,7 @@ package questions;
  * Also tests identifier rules:
  * - Is `int $ = 24;` valid? Yes, '$' and '_' are allowed as identifier characters in Java.
  */
-public class q4 {
+public class q1 {
     public static void main(String args[]) {
         byte b = 4;
         char c = 'a';
