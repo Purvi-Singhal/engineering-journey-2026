@@ -20,7 +20,7 @@ Each module contains:
 | Module | Title | Key Topics Covered | Status |
 | :---: | :--- | :--- | :---: |
 | **01** | [**Basics & Data Types**](./01-basics/README.md) | JVM/JRE/JDK architecture, Program anatomy, Variables, Primitive data types, Type conversion & casting | `COMPLETED` |
-| **02** | [**User Input & Variable Scope**](./02-input-and-scope/README.md) | `Scanner` methods, Newline buffer trap fix, `BufferedReader` Fast I/O, Local/Block/Class Scope, Variable Shadowing | `COMPLETED` |
+| **02** | [**User Input**](./02-input/README.md) | Standard input (`System.in`), `Scanner` methods, Newline buffer trap fix, `BufferedReader` Fast I/O | `COMPLETED` |
 | **03** | [**Operators & Precedence**](./03-operators/README.md) | Arithmetic (unary/binary), Relational, Logical, Assignment, Operator precedence & associativity | `COMPLETED` |
 | **04** | **Conditional Statements** | `if-else`, `else-if`, Ternary operator, `switch-case` | `UPCOMING` |
 | **05** | **Loops & Flow Control** | `while`, `for`, `do-while`, `break`, `continue`, Nested loops, Pattern printing | `UPCOMING` |
@@ -54,21 +54,19 @@ Each module contains:
 │       ├── TemperatureConverter.java
 │       └── *.pdf                          # Questions & Solutions
 │
-├── 02-input-and-scope/
-│   ├── README.md                          # Theory: Scanner, BufferedReader Fast I/O, Scope & Shadowing
+├── 02-input/
+│   ├── README.md                          # Theory: Scanner, Buffer Flush, BufferedReader Fast I/O
 │   ├── input.java                         # Scanner basic inputs & sum
 │   ├── product.java                       # Scanner product & Circle area
 │   ├── ScannerInputDemo.java              # Scanner newline trap resolution
 │   ├── FastIODemo.java                    # BufferedReader + StringTokenizer
-│   ├── ScopeAndShadowingDemo.java         # Local, Block, Instance, Static Scope & Shadowing
 │   └── questions/
 │       ├── README.md
 │       ├── q1_average.java                # Average calculation
 │       ├── q2_square_area.java            # Square area calculation
 │       ├── q3_bill_gst.java               # GST Bill computation
 │       ├── q4_profile_form.java           # Safe Scanner multi-type form
-│       ├── q5_fast_stream_sum.java        # High-speed stream summation
-│       └── q6_scope_tracer.java           # Scope and shadowing tracing
+│       └── q5_fast_stream_sum.java        # High-speed stream summation
 │
 ├── 03-operators/
 │   ├── README.md                          # Theory, Precedence table & truth tables
