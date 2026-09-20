@@ -50,7 +50,7 @@ Each module contains:
 │   ├── variables.java
 │   ├── typec.java
 │   └── questions/
-│       ├── q4.java                        # Type promotion exercise
+│       ├── q1.java                        # Type promotion exercise
 │       ├── TemperatureConverter.java
 │       └── *.pdf                          # Questions & Solutions
 │
