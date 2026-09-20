@@ -1,4 +1,4 @@
-# Module 02: Java Operators & Expressions
+# Module 03: Java Operators & Precedence
 
 > Arithmetic operators (binary & unary prefix/postfix), relational comparisons, logical operators, compound assignments, and operator precedence rules.
 

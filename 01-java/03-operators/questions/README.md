@@ -1,6 +1,6 @@
-# Module 02: Practice Questions & Tracing Walkthroughs
+# Module 03: Practice Questions & Tracing Walkthroughs
 
-> Step-by-step dry runs, problem statements, operator precedence explanations, and expected outputs for Module 02 (Operators & Expressions).
+> Step-by-step dry runs, problem statements, operator precedence explanations, and expected outputs for Module 03 (Operators & Precedence).
 
 ---
 
