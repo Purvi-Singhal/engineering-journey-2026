@@ -7,6 +7,8 @@
 */
 
 // to check if a person is adult, minor or teenager
+// && operator checks if both conditions are true
+
 import java.util.Scanner;
 class ifelse{
     public static void main(String[] args){
