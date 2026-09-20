@@ -1,6 +1,6 @@
 # Module 02: Practice Questions & Problem Solutions
 
-> Hands-on problem statements, sample inputs, formulas, and dry runs for Module 02 (User Input in Java).
+> Hands-on problem statements, sample inputs, formulas, and dry runs for Module 02 (User Input with Scanner).
 
 ---
 
@@ -52,13 +52,3 @@ Input the cost of 3 items (pencil, pen, eraser) as `float` values. Compute the t
 
 ### Problem Statement:
 Sequentially input an integer User ID, a multi-word Full Name, a double Hourly Wage, and a multi-word Department Name without skipping fields.
-
----
-
-## Question 5: Fast I/O Stream Sum
-
-- **File**: [`q5_fast_stream_sum.java`](./q5_fast_stream_sum.java)
-- **Concept**: `BufferedReader`, `StringTokenizer`, high-speed stream accumulation.
-
-### Problem Statement:
-Rapidly parse multiple space-delimited integers from a single line and compute count, sum, minimum, maximum, and average.
