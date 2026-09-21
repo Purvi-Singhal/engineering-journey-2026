@@ -10,8 +10,10 @@ Conditional statements in Java allow a program to evaluate boolean expressions a
 - [3. The `if-else` Statement](#3-the-if-else-statement)
 - [4. The `else-if` Ladder](#4-the-else-if-ladder)
 - [5. Nested `if-else`](#5-nested-if-else)
-- [6. Code Files Overview](#6-code-files-overview)
-- [7. How to Compile & Run](#7-how-to-compile--run)
+- [6. The Ternary Operator (`?:`)](#6-the-ternary-operator--)
+- [7. The `switch` Statement](#7-the-switch-statement)
+- [8. Code Files Overview](#8-code-files-overview)
+- [9. How to Compile & Run](#9-how-to-compile--run)
 
 ---
 
@@ -100,26 +102,64 @@ if (condition1) {
 
 ---
 
-## 6. Code Files Overview
+## 6. The Ternary Operator (`?:`)
+
+A compact one-line shorthand for simple `if-else` expressions that returns a value based on a condition.
+
+**Syntax:**
+```java
+variable = (condition) ? expressionIfTrue : expressionIfFalse;
+```
+
+**Example:**
+```java
+String status = (age >= 18) ? "Adult" : "Minor";
+```
+
+---
+
+## 7. The `switch` Statement
+
+Allows a variable to be tested for equality against a list of constant values (`cases`). Each case is followed by a `break` statement to avoid fall-through.
+
+```java
+switch (variable) {
+    case value1:
+        // code block
+        break;
+    case value2:
+        // code block
+        break;
+    default:
+        // default fallback block
+}
+```
+
+---
+
+## 8. Code Files Overview
 
 | File | Topic / Concept | Description |
 |---|---|---|
-| [`ifelse.java`](ifelse.java) | `if-else if-else` | Evaluates age to categorize as Adult, Teenager, or Minor. |
+| [`calculator.java`](calculator.java) | `switch` Statement | Performs basic arithmetic operations (`+`, `-`, `*`, `/`, `%`) based on operator input. |
 | [`elseif.java`](elseif.java) | `else-if` Ladder | Assigns letter grades (A, B, C, D, F) based on student marks. |
+| [`ifelse.java`](ifelse.java) | `if-else if-else` | Evaluates age to categorize as Adult, Teenager, or Minor. |
 | [`incomeTax.java`](incomeTax.java) | `else-if` Ladder | Progressive slab-based income tax calculation (<5L: 0%, 5-10L: 20%, >10L: 30%). |
 | [`largestOf2.java`](largestOf2.java) | `if-else` | Compares two integers and prints the larger value. |
 | [`largestOf3.java`](largestOf3.java) | Nested `if-else` | Finds the largest among three numbers using nested branching. |
 | [`login.java`](login.java) | `if-else` & Logical Operators | Simulates basic user authentication verifying username and password credentials. |
 | [`oddOreven.java`](oddOreven.java) | Modulo `%` + `if-else` | Checks whether an integer is even or odd. |
+| [`switchStat.java`](switchStat.java) | `switch` Statement | Maps a number (1–7) to its corresponding day of the week. |
+| [`ternary.java`](ternary.java) | Ternary Operator `? :` | Determines if a number is even or odd using inline ternary operator. |
 
 ---
 
-## 7. How to Compile & Run
+## 9. How to Compile & Run
 
 ```bash
 # Compile any file
-javac largestOf3.java
+javac calculator.java
 
 # Run the compiled bytecode
-java largestOf3
+java calculator
 ```
