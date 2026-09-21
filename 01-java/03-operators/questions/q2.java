@@ -1,5 +1,4 @@
 package questions;
-
 /**
  * Question 2: Logical Operators & Short-Circuit Evaluation
  * 
