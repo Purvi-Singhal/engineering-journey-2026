@@ -109,6 +109,7 @@ if (condition1) {
 | [`incomeTax.java`](incomeTax.java) | `else-if` Ladder | Progressive slab-based income tax calculation (<5L: 0%, 5-10L: 20%, >10L: 30%). |
 | [`largestOf2.java`](largestOf2.java) | `if-else` | Compares two integers and prints the larger value. |
 | [`largestOf3.java`](largestOf3.java) | Nested `if-else` | Finds the largest among three numbers using nested branching. |
+| [`login.java`](login.java) | `if-else` & Logical Operators | Simulates basic user authentication verifying username and password credentials. |
 | [`oddOreven.java`](oddOreven.java) | Modulo `%` + `if-else` | Checks whether an integer is even or odd. |
 
 ---
