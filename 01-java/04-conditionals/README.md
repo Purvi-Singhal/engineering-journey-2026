@@ -136,6 +136,10 @@ switch (variable) {
 }
 ```
 
+> [!NOTE]
+> In Java, the `switch` expression supports variables of type `byte`, `short`, `char`, `int`, `String`, and `enum` types (along with wrapper classes `Byte`, `Short`, `Character`, and `Integer`).
+
+
 ---
 
 ## 8. Code Files Overview
