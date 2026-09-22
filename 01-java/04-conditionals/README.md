@@ -13,7 +13,8 @@ Conditional statements in Java allow a program to evaluate boolean expressions a
 - [6. The Ternary Operator (`?:`)](#6-the-ternary-operator--)
 - [7. The `switch` Statement](#7-the-switch-statement)
 - [8. Code Files Overview](#8-code-files-overview)
-- [9. How to Compile & Run](#9-how-to-compile--run)
+- [9. Practice Questions Overview](#9-practice-questions-overview)
+- [10. How to Compile & Run](#10-how-to-compile--run)
 
 ---
 
@@ -154,7 +155,17 @@ switch (variable) {
 
 ---
 
-## 9. How to Compile & Run
+## 9. Practice Questions Overview
+
+| File | Topic / Concept | Description |
+|---|---|---|
+| [`questions/q1.java`](questions/q1.java) | `if-else` Ladder | Check whether a user-entered number is positive, negative, or zero. |
+| [`questions/q2.java`](questions/q2.java) | `if-else` Condition | Determine fever condition based on temperature threshold (>100°F). |
+| [`questions/q3.java`](questions/q3.java) | Nested `if-else` | Determine if a year is a leap year handling century and non-century rules. |
+
+---
+
+## 10. How to Compile & Run
 
 ```bash
 # Compile any file
