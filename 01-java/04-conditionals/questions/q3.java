@@ -12,8 +12,7 @@ import java.util.Scanner;
 class q3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        // Prompt user for year input
+        
         System.out.print("Enter year: ");
         int year = sc.nextInt();
 
