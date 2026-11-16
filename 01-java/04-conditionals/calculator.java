@@ -1,7 +1,7 @@
 // Simple Calculator using switch statement
 
 import java.util.Scanner;
-class c{
+class calculator{
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
