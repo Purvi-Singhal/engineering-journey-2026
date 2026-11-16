@@ -6,6 +6,7 @@ public class reverseNum{
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number that yoi want to reverse: ");
         int num = sc.nextInt();
+        int original = num;
         String rev = "";  //string+number=stringnumber
         while(num>0){
             int lastDigit = num%10; //last digit access
@@ -13,7 +14,7 @@ public class reverseNum{
             int n = num/10;  //remove last digit
             num = n;
         }
-        System.out.println("reverse of "+num+" is "+rev);
+        System.out.println("reverse of "+original+" is "+rev);
         sc.close();
     }
 }
