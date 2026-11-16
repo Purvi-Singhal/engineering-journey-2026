@@ -12,8 +12,10 @@ class forLoop{
         System.out.print("Enter side(n) of a square: ");
         int n = sc.nextInt();
         for(int i=1; i<=n; i++){
-            System.out.println("***");
+            System.out.println("* ".repeat(n)); //instead of '*'*n we can use "*".repeat(n)
         }
+        //'*'*n with single quotes takes the ASCII vof '*' and repeats it n times in integer formalue 
+        //with double quotes it will give a compilation error because java does not allow * on strings.
         sc.close();
     }
 }
