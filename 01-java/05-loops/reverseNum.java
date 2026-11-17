@@ -11,8 +11,8 @@ public class reverseNum{
         while(num>0){
             int lastDigit = num%10; //last digit access
             rev+=lastDigit;  //number reverse
-            int n = num/10;  //remove last digit
-            num = n;
+            num = num/10;  //remove last digit
+           
         }
         System.out.println("reverse of "+original+" is "+rev);
         sc.close();
