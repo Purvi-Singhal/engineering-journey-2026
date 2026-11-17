@@ -22,8 +22,8 @@ Each module contains:
 | **01** | [**Basics & Data Types**](./01-basics/README.md) | JVM/JRE/JDK architecture, Program anatomy, Variables, Primitive data types, Type conversion & casting | `COMPLETED` |
 | **02** | [**User Input**](./02-input/README.md) | Standard input (`System.in`), `Scanner` methods, Newline buffer trap & flush fix | `COMPLETED` |
 | **03** | [**Operators & Precedence**](./03-operators/README.md) | Arithmetic (unary/binary), Relational, Logical, Assignment, Operator precedence & associativity | `COMPLETED` |
-| **04** | **Conditional Statements** | `if-else`, `else-if`, Ternary operator, `switch-case` | `UPCOMING` |
-| **05** | **Loops & Flow Control** | `while`, `for`, `do-while`, `break`, `continue`, Nested loops, Pattern printing | `UPCOMING` |
+| **04** | [**Conditional Statements**](./04-conditionals/README.md) | `if-else`, `else-if`, Nested `if-else`, Ternary operator, `switch-case` | `COMPLETED` |
+| **05** | [**Loops & Iterative Flow Control**](./05-loops/README.md) | `while`, `for`, `do-while`, `break`, `continue`, Digit extraction, Primality & Pattern printing | `COMPLETED` |
 | **06** | **Functions & Methods** | Method syntax, Parameters vs arguments, Call by value, Function overloading, Scope | `UPCOMING` |
 | **07** | **Arrays & 2D Matrices** | Array creation, Memory representation, Searching/Sorting basics, 2D Arrays, Matrix operations | `UPCOMING` |
 | **08** | **Strings & StringBuilder** | String pool, Immutability, `StringBuilder`, String manipulation methods | `UPCOMING` |
@@ -77,7 +77,37 @@ Each module contains:
 │       ├── q1.java ... q5.java
 │       └── *.pdf                          # Questions & Solutions
 │
-└── [Upcoming Topic Modules: 04-conditionals, 05-loops, 06-functions, etc.]
+├── 04-conditionals/
+│   ├── README.md                          # Theory: Branching, Ternary & Switch-Case
+│   ├── ifelse.java
+│   ├── elseif.java
+│   ├── largestOf2.java
+│   ├── largestOf3.java
+│   ├── oddOreven.java
+│   ├── incomeTax.java
+│   ├── login.java
+│   ├── ternary.java
+│   ├── switchStat.java
+│   ├── calculator.java
+│   └── questions/
+│       └── q1.java ... q3.java
+│
+├── 05-loops/
+│   ├── README.md                          # Theory: while, for, do-while, break & continue
+│   ├── whileLoop.java
+│   ├── while1TOn.java
+│   ├── sumOfn.java
+│   ├── forLoop.java
+│   ├── reverseNum.java
+│   ├── useOfbreak.java
+│   ├── useOfcontinue.java
+│   ├── primeNum.java
+│   └── questions/
+│       ├── integers.java
+│       ├── factorial.java
+│       └── multiplication.java
+│
+└── [Upcoming Topic Modules: 06-functions, 07-arrays, etc.]
 ```
 
 ---
