@@ -24,15 +24,16 @@ Each module contains:
 | **03** | [**Operators & Precedence**](./03-operators/README.md) | Arithmetic (unary/binary), Relational, Logical, Assignment, Operator precedence & associativity | `COMPLETED` |
 | **04** | [**Conditional Statements**](./04-conditionals/README.md) | `if-else`, `else-if`, Nested `if-else`, Ternary operator, `switch-case` | `COMPLETED` |
 | **05** | [**Loops & Iterative Flow Control**](./05-loops/README.md) | `while`, `for`, `do-while`, `break`, `continue`, Digit extraction, Primality & Pattern printing | `COMPLETED` |
-| **06** | **Functions & Methods** | Method syntax, Parameters vs arguments, Call by value, Function overloading, Scope | `UPCOMING` |
-| **07** | **Arrays & 2D Matrices** | Array creation, Memory representation, Searching/Sorting basics, 2D Arrays, Matrix operations | `UPCOMING` |
-| **08** | **Strings & StringBuilder** | String pool, Immutability, `StringBuilder`, String manipulation methods | `UPCOMING` |
-| **09** | **Object-Oriented Programming** | Classes, Objects, 4 OOP Pillars (Encapsulation, Inheritance, Polymorphism, Abstraction), Interfaces, Packages | `UPCOMING` |
-| **10** | **Recursion & Backtracking** | Base cases, Call stack memory, Divide & Conquer | `UPCOMING` |
-| **11** | **Java Collections Framework** | `ArrayList`, `LinkedList`, `HashSet`, `TreeSet`, `HashMap`, `PriorityQueue`, Comparators | `UPCOMING` |
-| **12** | **Exception Handling** | `try-catch-finally`, Checked vs Unchecked, Custom exceptions, `throw`/`throws` | `UPCOMING` |
-| **13** | **JVM Internals & Memory Model** | ClassLoaders, Stack vs Heap memory, JIT compiler, Garbage Collection algorithms | `UPCOMING` |
-| **14** | **Concurrency & Multithreading** | Threads, `Runnable`, `Callable`, Synchronization, Locks, Thread pools (`ExecutorService`) | `UPCOMING` |
+| **06** | [**Nested Loops & Pattern Printing**](./06-nestedloops/README.md) | Outer vs inner loop mechanics, Star patterns, Number pyramids, Floyd's triangle, Character/ASCII patterns | `COMPLETED` |
+| **07** | **Functions & Methods** | Method syntax, Parameters vs arguments, Call by value, Function overloading, Scope | `UPCOMING` |
+| **08** | **Arrays & 2D Matrices** | Array creation, Memory representation, Searching/Sorting basics, 2D Arrays, Matrix operations | `UPCOMING` |
+| **09** | **Strings & StringBuilder** | String pool, Immutability, `StringBuilder`, String manipulation methods | `UPCOMING` |
+| **10** | **Object-Oriented Programming** | Classes, Objects, 4 OOP Pillars (Encapsulation, Inheritance, Polymorphism, Abstraction), Interfaces, Packages | `UPCOMING` |
+| **11** | **Recursion & Backtracking** | Base cases, Call stack memory, Divide & Conquer | `UPCOMING` |
+| **12** | **Java Collections Framework** | `ArrayList`, `LinkedList`, `HashSet`, `TreeSet`, `HashMap`, `PriorityQueue`, Comparators | `UPCOMING` |
+| **13** | **Exception Handling** | `try-catch-finally`, Checked vs Unchecked, Custom exceptions, `throw`/`throws` | `UPCOMING` |
+| **14** | **JVM Internals & Memory Model** | ClassLoaders, Stack vs Heap memory, JIT compiler, Garbage Collection algorithms | `UPCOMING` |
+| **15** | **Concurrency & Multithreading** | Threads, `Runnable`, `Callable`, Synchronization, Locks, Thread pools (`ExecutorService`) | `UPCOMING` |
 
 ---
 
@@ -107,7 +108,18 @@ Each module contains:
 │       ├── factorial.java
 │       └── multiplication.java
 │
-└── [Upcoming Topic Modules: 06-functions, 07-arrays, etc.]
+├── 06-nestedloops/
+│   ├── README.md                          # Theory: Nested loops & 3-Step Pattern Rule
+│   ├── nestedloop.java
+│   ├── RightAngledTri.java
+│   ├── reverseRightAngled.java
+│   ├── numbertriangle.java
+│   ├── reverseNumTriangle.java
+│   ├── sameNumTriangle.java
+│   └── questions/
+│       └── q1.java ... q4.java
+│
+└── [Upcoming Topic Modules: 07-functions, 08-arrays, etc.]
 ```
 
 ---
