@@ -25,7 +25,7 @@ Each module contains:
 | **04** | [**Conditional Statements**](./04-conditionals/README.md) | `if-else`, `else-if`, Nested `if-else`, Ternary operator, `switch-case` | `COMPLETED` |
 | **05** | [**Loops & Iterative Flow Control**](./05-loops/README.md) | `while`, `for`, `do-while`, `break`, `continue`, Digit extraction, Primality & Pattern printing | `COMPLETED` |
 | **06** | [**Nested Loops & Pattern Printing**](./06-nestedloops/README.md) | Outer vs inner loop mechanics, Star patterns, Number pyramids, Floyd's triangle, Character/ASCII patterns | `COMPLETED` |
-| **07** | **Functions & Methods** | Method syntax, Parameters vs arguments, Call by value, Function overloading, Scope | `UPCOMING` |
+| **07** | [**Functions & Methods**](./07-functions/README.md) | Method syntax, Parameters vs arguments, `return` types, Call by value, Swapping & Factorial | `COMPLETED` |
 | **08** | **Arrays & 2D Matrices** | Array creation, Memory representation, Searching/Sorting basics, 2D Arrays, Matrix operations | `UPCOMING` |
 | **09** | **Strings & StringBuilder** | String pool, Immutability, `StringBuilder`, String manipulation methods | `UPCOMING` |
 | **10** | **Object-Oriented Programming** | Classes, Objects, 4 OOP Pillars (Encapsulation, Inheritance, Polymorphism, Abstraction), Interfaces, Packages | `UPCOMING` |
@@ -119,7 +119,18 @@ Each module contains:
 │   └── questions/
 │       └── q1.java ... q4.java
 │
-└── [Upcoming Topic Modules: 07-functions, 08-arrays, etc.]
+├── 07-functions/
+│   ├── README.md                          # Theory: Methods, Parameters vs Arguments & Call by Value
+│   ├── functions.java
+│   ├── functionParameter.java
+│   ├── funcReturn.java
+│   ├── funcAdd.java
+│   ├── funcMultiply.java
+│   ├── funcFactorial.java
+│   ├── callByValue.java
+│   └── swap.java
+│
+└── [Upcoming Topic Modules: 08-arrays, 09-strings, etc.]
 ```
 
 ---
